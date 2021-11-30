@@ -1,4 +1,4 @@
-import os, subprocess, sys
+import os, subprocess
 
 def mac_os_traceroute(address):
         os.system("traceroute {} ".format(address))
