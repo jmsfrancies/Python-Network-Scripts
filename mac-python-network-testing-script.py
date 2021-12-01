@@ -8,13 +8,13 @@ def ping_address_function(address,how_many_scans):
     if res == 0:
         print("ping to {} OK".format(address))
     elif res == 2:
-        print("no response from  addres: {}".format(address))
+        print("no response from  address: {}".format(address))
     else:
         print("Ping to address: {} failed".format(address))
             
 #Primary function that requires the website url or ip address, how many scans             
 def main():
-    address = str(input("Enter a website url to scan (either www. or the ipv4 address): "))
+    address = str(input("Enter a FQDN to scan (either www. or the ipv4 address): "))
     how_many_scans = int(input("Please enter the number of times that you would like to perform the scan: "))
 
     ping_address_function(address,how_many_scans)
