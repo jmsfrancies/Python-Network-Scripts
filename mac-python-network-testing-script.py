@@ -28,18 +28,15 @@ def ping_address_function(address):
 # and the ability to choose between the three primary functions
 
 def main():
-    address = str(
-        input("Enter a FQDN to scan (either www. or the ipv4 address): "))
     which_cmd = int(input(
         "Press 1 for ping \npress 2 for traceroute \npress 3 for ifconfig \npress 4 for both ping and traceroute \nand press 5 for all three\nWhich One:"))
-
-    if which_cmd in [1, 2, 3, 4, 5]:
+    if which_cmd in [1, 2, 4, 5]:
+        address = str(
+        input("Enter a FQDN to scan (either www. or the ipv4 address): "))
         if which_cmd == 1:
             ping_address_function(address)
         elif which_cmd == 2:
             mac_os_traceroute(address)
-        elif which_cmd == 3:
-            mac_if_config_cmd()
         elif which_cmd == 4:
             ping_address_function(address)
             mac_os_traceroute(address)
@@ -47,6 +44,8 @@ def main():
             ping_address_function(address)
             mac_os_traceroute(address)
             mac_if_config_cmd()
+    if which_cmd == 3:
+        mac_if_config_cmd()
     else:
         print("Please choose a number between 1 and 5")
 
